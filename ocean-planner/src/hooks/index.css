@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Nunito+Sans:wght@400;600;700&display=swap');
+@import "tailwindcss";
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-line: var(--line);
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-sans: 'Nunito Sans', system-ui, sans-serif;
+}
+
+/* Themes: swap the whole look by changing data-theme on <html> */
+:root, [data-theme='ocean'] {
+  --bg: #e8f5f9; --surface: #ffffff; --ink: #0b2a3c; --muted: #5b7c8d;
+  --accent: #0e7490; --accent-ink: #ffffff; --line: #cfe6ef;
+}
+[data-theme='lagoon'] {
+  --bg: #e9f7f1; --surface: #ffffff; --ink: #0f3a30; --muted: #5a8a7c;
+  --accent: #0b7f63; --accent-ink: #ffffff; --line: #cdebe0;
+}
+[data-theme='coral'] {
+  --bg: #fff1ec; --surface: #ffffff; --ink: #3b1f1a; --muted: #8c6a62;
+  --accent: #d9553b; --accent-ink: #ffffff; --line: #f6d9d0;
+}
+[data-theme='orchid'] {
+  --bg: #f4eefb; --surface: #ffffff; --ink: #2c1a45; --muted: #7d6a99;
+  --accent: #7c3aed; --accent-ink: #ffffff; --line: #e3d8f3;
+}
+[data-theme='deepsea'] {
+  --bg: #0b1b2b; --surface: #12293e; --ink: #e6f1f7; --muted: #8fb0c4;
+  --accent: #38bdf8; --accent-ink: #04202e; --line: #24425d;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+}
+
+/* ---------- Flower animations ---------- */
+@keyframes fall {
+  0% { transform: translate3d(0, -10vh, 0) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translate3d(var(--sway), 110vh, 0) rotate(540deg); opacity: 0; }
+}
+.petal-fall {
+  position: absolute;
+  top: 0;
+  animation: fall var(--dur) linear var(--delay) infinite;
+}
+
+@keyframes burst {
+  0% { transform: translate(0, 0) scale(0.4) rotate(0deg); opacity: 1; }
+  100% { transform: translate(var(--dx), var(--dy)) scale(1) rotate(var(--rot)); opacity: 0; }
+}
+.petal-burst {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  animation: burst 1.5s cubic-bezier(0.2, 0.7, 0.3, 1) forwards;
+}
+
+@keyframes pop {
+  0% { transform: scale(0.6) translateY(20px); opacity: 0; }
+  60% { transform: scale(1.05) translateY(0); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.pop-in { animation: pop 0.45s ease-out both; }
+
+@keyframes bloom {
+  0% { transform: scale(0) rotate(-40deg); }
+  70% { transform: scale(1.2) rotate(8deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+.bloom { animation: bloom 0.7s ease-out both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .petal-fall, .petal-burst { display: none; }
+  .pop-in, .bloom { animation: none; }
+}

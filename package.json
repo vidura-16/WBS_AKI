@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "dev": "npm --prefix ocean-planner run dev --",
+    "build": "npm --prefix ocean-planner run build",
+    "lint": "npm --prefix ocean-planner run lint"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.119.2"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.5",
+    "tailwindcss": "^4.3.5"
+  }
+}
