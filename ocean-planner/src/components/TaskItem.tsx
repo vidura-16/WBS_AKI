@@ -31,19 +31,15 @@ export default function TaskItem({ task, all, nested = false, onCycle, onDelete 
           onClick={() => onCycle(task)}
           aria-label={`${task.title}: ${STATUS_LABEL[task.status]}. Click to change.`}
           title={STATUS_LABEL[task.status]}
-          className={`mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full ${
-            done
-              ? ''
-              : task.status === 'doing'
-                ? 'border-2 border-accent'
-                : 'border-2 border-muted/50'
-          }`}
+          className="-m-2 flex h-11 w-11 shrink-0 items-center justify-center rounded-full"
         >
           {done ? (
             <span className="bloom flex"><Rose size={24} /></span>
           ) : task.status === 'doing' ? (
-            <span className="h-2 w-2 rounded-full bg-accent" />
-          ) : null}
+            <span className="flex h-6 w-6 items-center justify-center rounded-full border-2 border-accent"><span className="h-2 w-2 rounded-full bg-accent" /></span>
+          ) : (
+            <span className="h-6 w-6 rounded-full border-2 border-muted/50" />
+          )}
         </button>
 
         <div className="min-w-0 flex-1">
@@ -77,7 +73,7 @@ export default function TaskItem({ task, all, nested = false, onCycle, onDelete 
 
         <button
           onClick={() => onDelete(task)}
-          className="text-xs text-muted opacity-0 transition hover:text-rose-600 focus:opacity-100 group-hover:opacity-100"
+          className="-my-1 -mr-2 rounded-lg px-2 py-2 text-xs text-muted transition hover:text-rose-600"
         >
           Delete
         </button>

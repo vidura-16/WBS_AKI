@@ -13,11 +13,15 @@ export default function ThemePicker({ value, onChange }: Props) {
           aria-label={t.label}
           title={t.label}
           onClick={() => onChange(t.id)}
-          style={{ background: t.swatch }}
-          className={`h-6 w-6 rounded-full border-2 border-surface transition ${
-            value === t.id ? 'ring-2 ring-ink scale-110' : 'ring-1 ring-line'
-          }`}
-        />
+          className="-m-1.5 flex h-11 w-11 items-center justify-center rounded-full"
+        >
+          <span
+            style={{ background: t.swatch }}
+            className={`h-7 w-7 rounded-full border-2 border-surface transition ${
+              value === t.id ? 'ring-2 ring-ink scale-110' : 'ring-1 ring-line'
+            }`}
+          />
+        </button>
       ))}
     </div>
   )

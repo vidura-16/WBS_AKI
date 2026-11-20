@@ -239,7 +239,8 @@ export default function Planner({ userId }: { userId: string }) {
 
       <button
         onClick={() => setShowForm(true)}
-        className="fixed bottom-6 right-6 rounded-full bg-accent px-6 py-3 font-semibold text-accent-ink shadow-lg"
+        style={{ bottom: 'calc(1.5rem + env(safe-area-inset-bottom))' }}
+        className="fixed right-6 rounded-full bg-accent px-6 py-3 font-semibold text-accent-ink shadow-lg"
       >
         + Add task
       </button>

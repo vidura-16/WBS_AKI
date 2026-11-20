@@ -4,7 +4,7 @@ import { LEVEL_ORDER } from '../lib/tasks'
 
 const CATEGORIES = ['Internship', 'Thesis', 'Exams', 'Fieldwork', 'Lab work', 'Reading', 'Personal']
 const field =
-  'w-full rounded-lg border border-line bg-bg px-3 py-2 text-ink outline-none focus:ring-2 focus:ring-accent'
+  'w-full min-w-0 rounded-lg border border-line bg-bg px-3 py-2 text-base text-ink outline-none focus:ring-2 focus:ring-accent'
 
 type Props = {
   tasks: Task[]
@@ -53,7 +53,8 @@ export default function TaskForm({ tasks, defaultLevel, defaultDate, onAdd, onCl
     <div className="fixed inset-0 z-10 flex items-end justify-center bg-black/40 p-0 sm:items-center sm:p-4">
       <form
         onSubmit={submit}
-        className="max-h-[92vh] w-full max-w-lg space-y-3 overflow-y-auto rounded-t-2xl bg-surface p-5 shadow-xl sm:rounded-2xl"
+        className="max-h-[92dvh] w-full max-w-lg space-y-3 overflow-y-auto rounded-t-2xl bg-surface p-5 shadow-xl sm:rounded-2xl"
+        style={{ paddingBottom: 'calc(1.25rem + env(safe-area-inset-bottom))' }}
       >
         <h2 className="font-display text-xl font-bold">New task</h2>
 
